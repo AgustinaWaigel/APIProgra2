@@ -5,14 +5,14 @@ public class Actividad{
   public virtual List<Registro> Registros {get;set;}
   
 
-  public Actividad(int id, string nombre)
-  {
-    Id = id;
-    Nombre = nombre;
-  }
-
     public Actividad()
     {
+    }
+
+    public Actividad(int id, string nombre)
+    {
+    Id = id;
+    Nombre = nombre;
     }
 
     override public string ToString()

@@ -23,10 +23,12 @@ public class RegistroContext : DbContext
             entity.Property(r => r.Duracion).IsRequired();
             entity.Property(r => r.Distancia).IsRequired();
 
-            entity.HasOne(r => r.Actividad) // Cambiar de 'a' a 'r' para claridad
-                  .WithMany(a => a.Registros)
-                  .HasForeignKey(r => r.ActividadId) // Usa ActividadId aquí
-                  .IsRequired();
+         // Configuración de la relación uno a muchos.
+            entity.HasOne(r => r.Actividad) // Cada Registro tiene una Actividad asociada.
+              .WithMany() // No necesitas la propiedad Registros en Actividad.
+              .HasForeignKey(r => r.ActividadId)
+              .IsRequired();
+
         });
     }
 }

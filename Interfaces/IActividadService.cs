@@ -5,5 +5,5 @@ public interface IActividadService
   public Actividad Create(ActividadDTO a);
   public bool Delete(int id);
   public Actividad? Update(int id, Actividad a);
-  public IEnumerable<Registro> GetRegistros(int id);
+  
 }

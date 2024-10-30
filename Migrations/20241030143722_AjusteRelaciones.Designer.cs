@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiPractica.Migrations
 {
     [DbContext(typeof(RegistroContext))]
-    [Migration("20241023000208_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20241030143722_AjusteRelaciones")]
+    partial class AjusteRelaciones
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -71,17 +71,12 @@ namespace ApiPractica.Migrations
             modelBuilder.Entity("Registro", b =>
                 {
                     b.HasOne("Actividad", "Actividad")
-                        .WithMany("Registros")
+                        .WithMany()
                         .HasForeignKey("ActividadId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Actividad");
-                });
-
-            modelBuilder.Entity("Actividad", b =>
-                {
-                    b.Navigation("Registros");
                 });
 #pragma warning restore 612, 618
         }

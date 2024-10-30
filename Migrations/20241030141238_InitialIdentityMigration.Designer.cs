@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiPractica.Migrations
 {
     [DbContext(typeof(RegistroContext))]
-    partial class RegistroContextModelSnapshot : ModelSnapshot
+    [Migration("20241030141238_InitialIdentityMigration")]
+    partial class InitialIdentityMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,12 +71,17 @@ namespace ApiPractica.Migrations
             modelBuilder.Entity("Registro", b =>
                 {
                     b.HasOne("Actividad", "Actividad")
-                        .WithMany()
+                        .WithMany("Registros")
                         .HasForeignKey("ActividadId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Actividad");
+                });
+
+            modelBuilder.Entity("Actividad", b =>
+                {
+                    b.Navigation("Registros");
                 });
 #pragma warning restore 612, 618
         }

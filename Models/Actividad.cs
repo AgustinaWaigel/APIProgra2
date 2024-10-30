@@ -1,10 +1,6 @@
 public class Actividad{
    public int Id { get; set; }
   public string? Nombre { get; set; }
-
-  public virtual List<Registro> Registros {get;set;}
-  
-
     public Actividad()
     {
     }
@@ -15,8 +11,5 @@ public class Actividad{
     Nombre = nombre;
     }
 
-    override public string ToString()
-  {
-    return $"Id:{Id},  {Nombre}";
-  }
+   
 }

@@ -10562,19 +10562,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\agusw\\.nuget\\packages\\": {}
+    "C:\\Users\\valen\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\agusw\\OneDrive\\Escritorio\\Progra 2\\Proyecto\\ApiTp\\ApiPractica.csproj",
+      "projectUniqueName": "C:\\Users\\valen\\Desktop\\APIProgra2\\ApiPractica.csproj",
       "projectName": "ApiPractica",
-      "projectPath": "C:\\Users\\agusw\\OneDrive\\Escritorio\\Progra 2\\Proyecto\\ApiTp\\ApiPractica.csproj",
-      "packagesPath": "C:\\Users\\agusw\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\agusw\\OneDrive\\Escritorio\\Progra 2\\Proyecto\\ApiTp\\obj\\",
+      "projectPath": "C:\\Users\\valen\\Desktop\\APIProgra2\\ApiPractica.csproj",
+      "packagesPath": "C:\\Users\\valen\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\valen\\Desktop\\APIProgra2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\agusw\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\valen\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"

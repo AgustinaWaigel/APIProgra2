@@ -50,9 +50,5 @@ public class ActividadDbService : IActividadService
         return a;       
     }
 
-    public IEnumerable<Registro> GetRegistros(int id)
-    {
-        Actividad a = _context.Actividades.Include(a => a.Registros).FirstOrDefault(x => x.Id == id);
-        return a.Registros;
-    }
+    
 }

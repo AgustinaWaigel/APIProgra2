@@ -10,11 +10,10 @@ public class ActividadDbService : IActividadService
     }
 
 
-    public Actividad Create(Actividad a)
+    public Actividad Create(ActividadDTO a)
     {
         Actividad actividad = new()
         {
-            Id = a.Id,
             Nombre = a.Nombre
         };
         _context.Actividades.Add(actividad);
@@ -43,20 +42,12 @@ public class ActividadDbService : IActividadService
         return _context.Actividades.Find(id);
     }
 
-    public Actividad? Update(int id, ActividadDTO a)
-    {
-        var actividadUpdate = _context.Actividades.FirstOrDefault(l => a.Id == id);
-        Console.WriteLine(actividadUpdate.Id);
-        actividadUpdate.Nombre = a.Nombre;
-
-        _context.Entry(actividadUpdate).State = EntityState.Modified;
-        _context.SaveChanges();
-        return actividadUpdate;       
-    }
-
     public Actividad? Update(int id, Actividad a)
     {
-        throw new NotImplementedException();
+
+        _context.Entry(a).State = EntityState.Modified;
+        _context.SaveChanges();
+        return a;       
     }
 
     

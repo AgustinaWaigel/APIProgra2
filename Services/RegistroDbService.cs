@@ -1,4 +1,6 @@
 
+using Microsoft.EntityFrameworkCore;
+
 public class RegistroDbService : IRegistroService {
 
   private readonly RegistroContext _context;
@@ -8,21 +10,21 @@ public class RegistroDbService : IRegistroService {
     _context = context;
   }
 
-    public Registro Create(Registro r)
+    public Registro Create(RegistroDTO r)
     {
-        Registro registros = new(){
-            Id = r.Id,
+        var nuevoRegistro = new Registro
+        {
             Actividad = r.Actividad,
-            Fecha = r.Fecha,
-            Duracion = r.Duracion,
-            Distancia = r.Distancia
+            Fecha = (DateTime)r.Fecha,
+            Duracion = (float)r.Duracion,
+            Distancia = (float)r.Distancia
 
 
 
         };
-        _context.Add(registros);
+        _context.Add(nuevoRegistro);
         _context.SaveChanges();
-        return registros;
+        return nuevoRegistro;
         
     }
 
@@ -47,15 +49,17 @@ public class RegistroDbService : IRegistroService {
         return _context.Registros.Find(id);
     }
 
-    public Registro? Update(int id, Registro r)
+    public Registro? Update(int id, RegistroDTO r)
     {
         var registroUpdate = _context.Registros.FirstOrDefault(l => r.Id == id);
         Console.WriteLine(registroUpdate.Id);
         registroUpdate.Actividad = r.Actividad;
-        registroUpdate.Fecha = r.Fecha;
-        registroUpdate.Duracion = r.Duracion;
-        registroUpdate.Distancia = r.Distancia;
-        _context.Registros.Update(registroUpdate);
+        registroUpdate.Fecha = (DateTime)r.Fecha;
+        registroUpdate.Duracion = (float)r.Duracion;
+        registroUpdate.Distancia = (float)r.Distancia;
+        
+        //_context.Registros.Update(registroUpdate);
+        _context.Entry(registroUpdate).State = EntityState.Modified;
         _context.SaveChanges();
         return registroUpdate;
     }
